@@ -19,12 +19,17 @@ class GLMBackend(BaseLLM):
     """
     GLM (Zhipu AI) backend implementation.
 
-    Uses Zhipu AI's API which is compatible with OpenAI's format.
-    API Documentation: https://open.bigmodel.cn/dev/api
+    Supports both OpenAI-compatible and Anthropic-compatible GLM endpoints.
     """
 
     # Available GLM models
     MODELS = {
+        "glm-5.1": {
+            "context_length": 128000,
+            "input_price": 0.1,
+            "output_price": 0.1,
+            "description": "Latest GLM model"
+        },
         "glm-4-flash": {
             "context_length": 128000,
             "input_price": 0.1,  # RMB per 1M tokens
@@ -47,7 +52,7 @@ class GLMBackend(BaseLLM):
 
     def __init__(
         self,
-        model_name: str = "glm-4-flash",
+        model_name: str = "glm-5.1",
         api_key: Optional[str] = None,
         temperature: float = 0.0,
         max_tokens: int = 1000,
@@ -63,7 +68,7 @@ class GLMBackend(BaseLLM):
             max_tokens: Maximum tokens in response
             cost_tracker: Optional cost tracker instance
         """
-        super().__init__(model_name, temperature, max_tokens)
+        super().__init__(model_name, temperature=temperature, max_tokens=max_tokens)
 
         self.api_key = api_key or os.getenv("GLM_API_KEY")
         if not self.api_key:
@@ -74,15 +79,27 @@ class GLMBackend(BaseLLM):
         # Model pricing info
         if model_name not in self.MODELS:
             logger.warning(f"Unknown model {model_name}, using default pricing")
-        model_info = self.MODELS.get(model_name, self.MODELS["glm-4-flash"])
+        model_info = self.MODELS.get(model_name, self.MODELS["glm-5.1"])
 
         self.input_price = model_info["input_price"]
         self.output_price = model_info["output_price"]
 
-        # API endpoint
-        self.api_base = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
+        # API endpoint and protocol mode
+        configured_base = os.getenv("GLM_BASE_URL", "https://api.z.ai/api/anthropic").rstrip("/")
+        if "anthropic" in configured_base:
+            self.api_mode = "anthropic"
+            if configured_base.endswith("/v1/messages"):
+                self.api_base = configured_base
+            else:
+                self.api_base = f"{configured_base}/v1/messages"
+        else:
+            self.api_mode = "openai"
+            if configured_base.endswith("/chat/completions"):
+                self.api_base = configured_base
+            else:
+                self.api_base = f"{configured_base}/chat/completions"
 
-        logger.info(f"Initialized GLM backend with model {model_name}")
+        logger.info(f"Initialized GLM backend with model {model_name} ({self.api_mode})")
 
     async def generate(
         self,
@@ -103,32 +120,41 @@ class GLMBackend(BaseLLM):
         Returns:
             Generated text response
         """
-        messages = []
-
-        # Add system prompt if provided
-        if system_prompt:
-            messages.append({"role": "system", "content": system_prompt})
-
-        # Add user prompt
-        messages.append({"role": "user", "content": prompt})
-
-        headers = {
-            "Authorization": f"Bearer {self.api_key}",
-            "Content-Type": "application/json"
-        }
-
-        request_body = {
-            "model": self.model_name,
-            "messages": messages,
-            "temperature": self.temperature,
-            "max_tokens": self.max_tokens,
-            "top_p": 0.7,
-            "stream": False
-        }
-
-        # Add response format if specified
-        if response_format:
-            request_body["response_format"] = response_format
+        if self.api_mode == "anthropic":
+            messages = [{"role": "user", "content": prompt}]
+            headers = {
+                "x-api-key": self.api_key,
+                "anthropic-version": "2023-06-01",
+                "Content-Type": "application/json",
+            }
+            request_body = {
+                "model": self.model_name,
+                "messages": messages,
+                "temperature": self.temperature,
+                "max_tokens": self.max_tokens,
+            }
+            if system_prompt:
+                request_body["system"] = system_prompt
+        else:
+            messages = []
+            if system_prompt:
+                messages.append({"role": "system", "content": system_prompt})
+            messages.append({"role": "user", "content": prompt})
+            headers = {
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+            }
+            request_body = {
+                "model": self.model_name,
+                "messages": messages,
+                "temperature": self.temperature,
+                "max_tokens": self.max_tokens,
+                "top_p": 0.7,
+                "stream": False,
+            }
+            # Add response format if specified
+            if response_format:
+                request_body["response_format"] = response_format
 
         # Retry logic
         last_error = None
@@ -164,12 +190,24 @@ class GLMBackend(BaseLLM):
                         data = await response.json()
 
                         # Extract response
-                        content = data["choices"][0]["message"]["content"]
+                        if self.api_mode == "anthropic":
+                            content_blocks = data.get("content", [])
+                            if isinstance(content_blocks, list) and content_blocks:
+                                first_block = content_blocks[0]
+                                content = (
+                                    first_block.get("text", "")
+                                    if isinstance(first_block, dict)
+                                    else str(first_block)
+                                )
+                            else:
+                                content = ""
+                        else:
+                            content = data["choices"][0]["message"]["content"]
 
                         # Track token usage
                         usage = data.get("usage", {})
-                        input_tokens = usage.get("prompt_tokens", 0)
-                        output_tokens = usage.get("completion_tokens", 0)
+                        input_tokens = usage.get("prompt_tokens", usage.get("input_tokens", 0))
+                        output_tokens = usage.get("completion_tokens", usage.get("output_tokens", 0))
 
                         self._track_cost(input_tokens, output_tokens)
 
@@ -196,6 +234,10 @@ class GLMBackend(BaseLLM):
 
         # All retries exhausted
         raise RuntimeError(f"GLM API failed after {retries} attempts: {last_error}")
+
+    def count_tokens(self, text: str) -> int:
+        """Approximate token count for GLM-style models."""
+        return max(1, len(text) // 4)
 
     def _track_cost(self, input_tokens: int, output_tokens: int):
         """

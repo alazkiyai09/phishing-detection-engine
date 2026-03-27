@@ -78,8 +78,8 @@ class Settings(BaseSettings):
 
     # GLM Configuration (Zhipu AI)
     GLM_API_KEY: Optional[str] = Field(default=None, description="GLM API key from environment")
-    GLM_MODEL: str = "glm-4-flash"
-    GLM_API_BASE: str = "https://open.bigmodel.cn/api/paas/v4"
+    GLM_MODEL: str = "glm-5.1"
+    GLM_API_BASE: str = "https://api.z.ai/api/anthropic"
     GLM_TEMPERATURE: float = 0.0
     GLM_MAX_TOKENS: int = 1000
 

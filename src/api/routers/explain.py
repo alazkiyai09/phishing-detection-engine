@@ -15,3 +15,9 @@ async def explain_prediction(prediction_id: str, request: Request) -> dict[str, 
         raise HTTPException(status_code=404, detail="Prediction not found")
     explanation = generate_explanation(prediction)
     return {"prediction_id": prediction_id, "explanation": explanation}
+
+
+@router.post("/{id}")
+async def explain_prediction_by_id(id: str, request: Request) -> dict[str, str]:
+    """Compatibility alias for plan endpoint shape."""
+    return await explain_prediction(prediction_id=id, request=request)

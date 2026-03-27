@@ -9,6 +9,10 @@ app = FastAPI(
     description="Unified phishing detection API across feature, model, and explainability layers.",
 )
 
+# Ensure state exists for test and non-lifespan contexts.
+app.state.predictions = {}
+app.state.benchmarks = []
+
 app.include_router(analyze.router, prefix="/api/v1/analyze", tags=["analyze"])
 app.include_router(explain.router, prefix="/api/v1/explain", tags=["explain"])
 app.include_router(benchmark.router, prefix="/api/v1/benchmark", tags=["benchmark"])
@@ -23,3 +27,12 @@ async def startup() -> None:
 @app.get("/health")
 async def health() -> dict:
     return {"status": "ok", "service": "phishing-detection-engine"}
+
+
+@app.get("/metrics")
+async def metrics() -> dict:
+    return {
+        "service": "phishing-detection-engine",
+        "predictions_cached": len(app.state.predictions),
+        "benchmarks_recorded": len(app.state.benchmarks),
+    }
