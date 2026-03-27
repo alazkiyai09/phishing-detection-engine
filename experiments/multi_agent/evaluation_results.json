@@ -1,0 +1,343 @@
+{
+  "total_emails": 6,
+  "ensemble_results": [
+    {
+      "email_id": "test-001",
+      "predicted": true,
+      "actual": true,
+      "confidence": 0.9166666666666666,
+      "correct": true,
+      "latency_ms": 2.2335052490234375
+    },
+    {
+      "email_id": "test-002",
+      "predicted": true,
+      "actual": true,
+      "confidence": 0.712962962962963,
+      "correct": true,
+      "latency_ms": 1.7108917236328125
+    },
+    {
+      "email_id": "test-003",
+      "predicted": true,
+      "actual": true,
+      "confidence": 0.8805555555555556,
+      "correct": true,
+      "latency_ms": 1.4019012451171875
+    },
+    {
+      "email_id": "test-004",
+      "predicted": true,
+      "actual": false,
+      "confidence": 1.0,
+      "correct": false,
+      "latency_ms": 1.852273941040039
+    },
+    {
+      "email_id": "test-005",
+      "predicted": true,
+      "actual": false,
+      "confidence": 1.0,
+      "correct": false,
+      "latency_ms": 1.7249584197998047
+    },
+    {
+      "email_id": "test-006",
+      "predicted": true,
+      "actual": false,
+      "confidence": 1.0,
+      "correct": false,
+      "latency_ms": 1.2960433959960938
+    }
+  ],
+  "per_agent_results": {
+    "url_analyst": {
+      "correct": 6,
+      "incorrect": 0,
+      "predictions": [
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": false,
+          "actual": false,
+          "confidence": 0.9
+        },
+        {
+          "predicted": false,
+          "actual": false,
+          "confidence": 0.9
+        },
+        {
+          "predicted": false,
+          "actual": false,
+          "confidence": 0.5
+        }
+      ],
+      "latencies": [
+        0.5283355712890625,
+        0.5290508270263672,
+        0.5538463592529297,
+        0.6034374237060547,
+        0.6892681121826172,
+        0.16880035400390625
+      ],
+      "metrics": {
+        "accuracy": 6.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "avg_latency_ms": 0.5121231079101562
+    },
+    "content_analyst": {
+      "correct": 3,
+      "incorrect": 3,
+      "predictions": [
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        }
+      ],
+      "latencies": [
+        0.39458274841308594,
+        0.14972686767578125,
+        0.1494884490966797,
+        0.3452301025390625,
+        0.1857280731201172,
+        0.17690658569335938
+      ],
+      "metrics": {
+        "accuracy": 1.5,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666,
+        "tp": 3,
+        "fp": 3,
+        "fn": 0
+      },
+      "avg_latency_ms": 0.233610471089681
+    },
+    "header_analyst": {
+      "correct": 5,
+      "incorrect": 1,
+      "predictions": [
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 1.0
+        },
+        {
+          "predicted": false,
+          "actual": true,
+          "confidence": 1.0
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 1.0
+        },
+        {
+          "predicted": false,
+          "actual": false,
+          "confidence": 1.0
+        },
+        {
+          "predicted": false,
+          "actual": false,
+          "confidence": 1.0
+        },
+        {
+          "predicted": false,
+          "actual": false,
+          "confidence": 1.0
+        }
+      ],
+      "latencies": [
+        0.09655952453613281,
+        0.43392181396484375,
+        0.08392333984375,
+        0.15926361083984375,
+        0.10085105895996094,
+        0.1850128173828125
+      ],
+      "metrics": {
+        "accuracy": 4.166666666666667,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8,
+        "tp": 2,
+        "fp": 0,
+        "fn": 1
+      },
+      "avg_latency_ms": 0.17658869425455728
+    },
+    "visual_analyst": {
+      "correct": 3,
+      "incorrect": 3,
+      "predictions": [
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        }
+      ],
+      "latencies": [
+        0.10752677917480469,
+        0.07534027099609375,
+        0.06794929504394531,
+        0.10323524475097656,
+        0.09226799011230469,
+        0.23126602172851562
+      ],
+      "metrics": {
+        "accuracy": 1.5,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666,
+        "tp": 3,
+        "fp": 3,
+        "fn": 0
+      },
+      "avg_latency_ms": 0.11293093363444011
+    },
+    "financial_specialist": {
+      "correct": 3,
+      "incorrect": 3,
+      "predictions": [
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 1.0
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 1.0
+        },
+        {
+          "predicted": true,
+          "actual": true,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        },
+        {
+          "predicted": true,
+          "actual": false,
+          "confidence": 0.85
+        }
+      ],
+      "latencies": [
+        0.6191730499267578,
+        0.16760826110839844,
+        0.17786026000976562,
+        0.18978118896484375,
+        0.2334117889404297,
+        0.17023086547851562
+      ],
+      "metrics": {
+        "accuracy": 1.5,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666,
+        "tp": 3,
+        "fp": 3,
+        "fn": 0
+      },
+      "avg_latency_ms": 0.25967756907145184
+    }
+  },
+  "latency_analysis": {
+    "mean": 1.7032623291015625,
+    "median": 1.7179250717163086,
+    "min": 1.2960433959960938,
+    "max": 2.2335052490234375,
+    "std": 0.30565140957526343
+  },
+  "cost_analysis": {},
+  "total_evaluation_time": 0.01107645034790039,
+  "ensemble_metrics": {
+    "accuracy": 0.5,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "tp": 3,
+    "fp": 3,
+    "fn": 0
+  }
+}

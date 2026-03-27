@@ -1,0 +1,181 @@
+{
+  "phishing_emails": [
+    {
+      "id": "phish_001",
+      "sender": {
+        "display_name": "Netflix Support",
+        "email": "support@netflix-security.com"
+      },
+      "subject": "URGENT: Your account will be suspended",
+      "body": "Dear Customer,\n\nYour Netflix account will be suspended in 24 hours due to unusual activity. You must verify your information immediately to avoid losing access.\n\nClick here to verify your account: http://netflix-security-verify.com/login\n\nIf you do not verify, your account will be permanently closed.\n\nRegards,\nNetflix Security Team",
+      "urls": [
+        {
+          "original": "http://netflix-security-verify.com/login",
+          "domain": "netflix-security-verify.com",
+          "has_https": false
+        }
+      ],
+      "attachments": [],
+      "category": "phishing",
+      "expected_explanation": "Lookalike domain mimicking Netflix, urgency language, requests credential verification"
+    },
+    {
+      "id": "phish_002",
+      "sender": {
+        "display_name": "Bank of America",
+        "email": "alerts@bankofamerica-secure.com"
+      },
+      "subject": "Security Alert: Unusual sign-in detected",
+      "body": "We detected an unusual sign-in to your account from a new device. If this wasn't you, your account may be compromised.\n\nClick here to secure your account: https://bankofamerica-secure.com/identity-verify\n\nPlease verify your identity within 1 hour or your account will be locked.\n\nAccount: ****1234\nAmount at risk: $15,430.00",
+      "urls": [
+        {
+          "original": "https://bankofamerica-secure.com/identity-verify",
+          "domain": "bankofamerica-secure.com",
+          "has_https": true
+        }
+      ],
+      "attachments": [],
+      "category": "phishing",
+      "expected_explanation": "Lookalike domain, urgency, fear tactics, financial bait"
+    },
+    {
+      "id": "phish_003",
+      "sender": {
+        "display_name": "CEO",
+        "email": "ceo@company-executive.com"
+      },
+      "subject": "URGENT: Wire transfer needed immediately",
+      "body": "I need you to process an urgent wire transfer right now. I'm in a meeting and can't be reached by phone.\n\nTransfer amount: $45,000\nRecipient: ABC Corp\nAccount: XXXXXXXXXX\n\nThis is confidential and urgent. Process immediately without asking questions.\n\nCEO",
+      "urls": [],
+      "attachments": [
+        {
+          "filename": "Invoice.docm",
+          "file_type": ".docm",
+          "size_bytes": 45000,
+          "has_macros": true
+        }
+      ],
+      "category": "phishing",
+      "expected_explanation": "CEO fraud, urgency, unusual request, dangerous attachment with macros"
+    },
+    {
+      "id": "phish_004",
+      "sender": {
+        "display_name": "IRS Refund Department",
+        "email": "refund@irs-tax-return.gov"
+      },
+      "subject": "You have a tax refund of $2,840.00",
+      "body": "Congratulations! You have a tax refund pending.\n\nTo claim your refund, you must verify your identity and bank account information.\n\nRefund Amount: $2,840.00\nClick here: http://irs-tax-return.gov/claim-refund\n\nThis offer expires in 24 hours.\n\nInternal Revenue Service",
+      "urls": [
+        {
+          "original": "http://irs-tax-return.gov/claim-refund",
+          "domain": "irs-tax-return.gov",
+          "has_https": false
+        }
+      ],
+      "attachments": [],
+      "category": "phishing",
+      "expected_explanation": "IRS impersonation, fake domain, financial bait, urgency"
+    },
+    {
+      "id": "phish_005",
+      "sender": {
+        "display_name": "Microsoft Office 365",
+        "email": "noreply@microsoft-office365-renewal.com"
+      },
+      "subject": "Your subscription expires today",
+      "body": "Your Office 365 subscription expires today. All your documents will be inaccessible if you don't renew.\n\nRenew Now: https://microsoft-office365-renewal.com/billing\n\nDon't lose your work - renew immediately.\n\nThis is an automated message. Please do not reply.",
+      "urls": [
+        {
+          "original": "https://microsoft-office365-renewal.com/billing",
+          "domain": "microsoft-office365-renewal.com",
+          "has_https": true
+        }
+      ],
+      "attachments": [],
+      "category": "phishing",
+      "expected_explanation": "Subscription renewal scam, lookalike domain, urgency"
+    }
+  ],
+  "safe_emails": [
+    {
+      "id": "safe_001",
+      "sender": {
+        "display_name": "Netflix",
+        "email": "info@mailer.netflix.com"
+      },
+      "subject": "New arrivals you might enjoy",
+      "body": "Hi there,\n\nBased on your viewing history, we thought you might enjoy these new arrivals:\n\n- Featured Show 1\n- Featured Show 2\n- Featured Show 3\n\nStart watching on Netflix.\n\nYour Netflix Team",
+      "urls": [
+        {
+          "original": "https://www.netflix.com/browse",
+          "domain": "netflix.com",
+          "has_https": true
+        }
+      ],
+      "attachments": [],
+      "category": "safe",
+      "expected_explanation": "Legitimate Netflix domain, no urgency, no sensitive requests"
+    },
+    {
+      "id": "safe_002",
+      "sender": {
+        "display_name": "Amazon",
+        "email": "shipment-tracking@amazon.com"
+      },
+      "subject": "Your Amazon order has shipped",
+      "body": "Great news! Your order has shipped and is on its way.\n\nOrder Details:\nOrder #: 112-3456789-0123456\nEstimated delivery: March 15-17\n\nTrack your package: https://www.amazon.com/progress-tracker\n\nThanks for shopping with us!\nAmazon.com",
+      "urls": [
+        {
+          "original": "https://www.amazon.com/progress-tracker",
+          "domain": "amazon.com",
+          "has_https": true
+        }
+      ],
+      "attachments": [],
+      "category": "safe",
+      "expected_explanation": "Legitimate Amazon domain, order tracking, no urgency"
+    },
+    {
+      "id": "safe_003",
+      "sender": {
+        "display_name": "John Smith",
+        "email": "john.smith@company.com"
+      },
+      "subject": "Meeting tomorrow",
+      "body": "Hi,\n\nJust confirming our meeting tomorrow at 2pm in Conference Room B.\n\nAgenda:\n1. Q1 Review\n2. Project updates\n3. Next steps\n\nLet me know if you can't make it.\n\nThanks,\nJohn",
+      "urls": [],
+      "attachments": [
+        {
+          "filename": "Q1_Report.pdf",
+          "file_type": ".pdf",
+          "size_bytes": 1024000,
+          "has_macros": false
+        }
+      ],
+      "category": "safe",
+      "expected_explanation": "Internal communication, legitimate domain, safe attachment"
+    }
+  ],
+  "suspicious_emails": [
+    {
+      "id": "suspicious_001",
+      "sender": {
+        "display_name": "PayPal",
+        "email": "service@paypal.com"
+      },
+      "subject": "Recent account activity",
+      "body": "We're writing to let you know about recent activity on your PayPal account.\n\nIf you authorized this activity, you can ignore this email.\n\nIf you didn't authorize this, please review your recent activity in your account.\n\nLog in to PayPal: https://www.paypal.com\n\nThank you for being a PayPal customer.",
+      "urls": [
+        {
+          "original": "https://www.paypal.com",
+          "domain": "paypal.com",
+          "has_https": true
+        }
+      ],
+      "attachments": [],
+      "category": "suspicious",
+      "expected_explanation": "Legitimate domain but generic security message, verify by logging in directly"
+    }
+  ]
+}

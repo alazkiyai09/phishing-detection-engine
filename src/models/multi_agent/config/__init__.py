@@ -1,0 +1,17 @@
+"""Configuration for agents and prompts."""
+
+from .agent_config import (
+    AGENT_WEIGHTS,
+    CONFLICT_RESOLUTION_THRESHOLD,
+    COORDINATION_CONFIG,
+    CONFIDENCE_THRESHOLD,
+    URL_ANALYST_CONFIG,
+)
+
+__all__ = [
+    "AGENT_WEIGHTS",
+    "CONFIDENCE_THRESHOLD",
+    "CONFLICT_RESOLUTION_THRESHOLD",
+    "COORDINATION_CONFIG",
+    "URL_ANALYST_CONFIG",
+]

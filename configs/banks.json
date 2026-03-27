@@ -1,0 +1,219 @@
+{
+  "description": "Known financial institutions for bank impersonation detection",
+  "last_updated": "2025-01-29",
+  "banks": {
+    "united_states": [
+      {
+        "name": "JPMorgan Chase",
+        "aliases": ["Chase", "JPMorgan", "Chase Bank"],
+        "domains": ["chase.com", "jpmorgan.com", "jpmorganchase.com"]
+      },
+      {
+        "name": "Bank of America",
+        "aliases": ["BoA", "Bank of America", "BOFA"],
+        "domains": ["bankofamerica.com", "boa.com"]
+      },
+      {
+        "name": "Wells Fargo",
+        "aliases": ["Wells Fargo", "WellsFargo"],
+        "domains": ["wellsfargo.com"]
+      },
+      {
+        "name": "Citibank",
+        "aliases": ["Citi", "Citibank", "CitiBank"],
+        "domains": ["citi.com", "citibank.com"]
+      },
+      {
+        "name": "Capital One",
+        "aliases": ["Capital One", "CapitalOne"],
+        "domains": ["capitalone.com"]
+      },
+      {
+        "name": "TD Bank",
+        "aliases": ["TD", "TD Bank", "Toronto Dominion"],
+        "domains": ["td.com", "tdbank.com"]
+      },
+      {
+        "name": "PNC Bank",
+        "aliases": ["PNC", "PNC Bank"],
+        "domains": ["pnc.com"]
+      },
+      {
+        "name": "US Bank",
+        "aliases": ["US Bank", "U.S. Bank"],
+        "domains": ["usbank.com"]
+      },
+      {
+        "name": "Bank of New York Mellon",
+        "aliases": ["BNY Mellon", "BNY"],
+        "domains": ["bnymellon.com"]
+      },
+      {
+        "name": "Goldman Sachs",
+        "aliases": ["Goldman", "GS"],
+        "domains": ["goldmansachs.com"]
+      },
+      {
+        "name": "Morgan Stanley",
+        "aliases": ["Morgan Stanley", "MS"],
+        "domains": ["morganstanley.com"]
+      }
+    ],
+    "new_zealand": [
+      {
+        "name": "ANZ Bank New Zealand",
+        "aliases": ["ANZ", "ANZ Bank"],
+        "domains": ["anz.co.nz", "anz.com"]
+      },
+      {
+        "name": "ASB Bank",
+        "aliases": ["ASB"],
+        "domains": ["asb.co.nz"]
+      },
+      {
+        "name": "Bank of New Zealand",
+        "aliases": ["BNZ"],
+        "domains": ["bnz.co.nz"]
+      },
+      {
+        "name": "Westpac New Zealand",
+        "aliases": ["Westpac"],
+        "domains": ["westpac.co.nz"]
+      },
+      {
+        "name": "Kiwibank",
+        "aliases": ["Kiwibank"],
+        "domains": ["kiwibank.co.nz"]
+      },
+      {
+        "name": "The Co-operative Bank",
+        "aliases": ["Co-operative Bank", "Coop Bank"],
+        "domains": ["cooperativebank.co.nz"]
+      },
+      {
+        "name": "Heartland Bank",
+        "aliases": ["Heartland"],
+        "domains": ["heartlandbank.co.nz"]
+      },
+      {
+        "name": "SBS Bank",
+        "aliases": ["SBS"],
+        "domains": ["sbsbank.co.nz"]
+      },
+      {
+        "name": "Rabobank New Zealand",
+        "aliases": ["Rabobank"],
+        "domains": ["rabobank.co.nz"]
+      },
+      {
+        "name": "TSB Bank",
+        "aliases": ["TSB"],
+        "domains": ["tsb.co.nz"]
+      }
+    ],
+    "international": [
+      {
+        "name": "HSBC",
+        "aliases": ["HSBC"],
+        "domains": ["hsbc.com", "hsbc.co.uk"]
+      },
+      {
+        "name": "Barclays",
+        "aliases": ["Barclays", "Barclaycard"],
+        "domains": ["barclays.com", "barclaycard.com"]
+      },
+      {
+        "name": "Deutsche Bank",
+        "aliases": ["Deutsche", "DB"],
+        "domains": ["db.com", "deutsche-bank.de"]
+      },
+      {
+        "name": "UBS",
+        "aliases": ["UBS"],
+        "domains": ["ubs.com"]
+      },
+      {
+        "name": "Credit Suisse",
+        "aliases": ["Credit Suisse", "CS"],
+        "domains": ["credit-suisse.com"]
+      },
+      {
+        "name": "BNP Paribas",
+        "aliases": ["BNP", "BNP Paribas"],
+        "domains": ["bnpparibas.com"]
+      },
+      {
+        "name": "Societe Generale",
+        "aliases": ["SocGen", "Societe Generale"],
+        "domains": ["socgen.com"]
+      },
+      {
+        "name": "ING Group",
+        "aliases": ["ING"],
+        "domains": ["ing.com"]
+      },
+      {
+        "name": "Rabobank",
+        "aliases": ["Rabobank"],
+        "domains": ["rabobank.com", "rabobank.nl"]
+      },
+      {
+        "name": "Nordea",
+        "aliases": ["Nordea"],
+        "domains": ["nordea.com"]
+      }
+    ],
+    "payment_services": [
+      {
+        "name": "PayPal",
+        "aliases": ["PayPal", "PayPal Holdings"],
+        "domains": ["paypal.com"]
+      },
+      {
+        "name": "Stripe",
+        "aliases": ["Stripe"],
+        "domains": ["stripe.com"]
+      },
+      {
+        "name": "Square",
+        "aliases": ["Square", "Block"],
+        "domains": ["square.com", "block.xyz"]
+      },
+      {
+        "name": "Venmo",
+        "aliases": ["Venmo"],
+        "domains": ["venmo.com"]
+      },
+      {
+        "name": "Zelle",
+        "aliases": ["Zelle"],
+        "domains": ["zellepay.com"]
+      },
+      {
+        "name": "Wise",
+        "aliases": ["Wise", "TransferWise"],
+        "domains": ["wise.com", "transferwise.com"]
+      },
+      {
+        "name": "Western Union",
+        "aliases": ["Western Union", "WU"],
+        "domains": ["westernunion.com"]
+      },
+      {
+        "name": "MoneyGram",
+        "aliases": ["MoneyGram"],
+        "domains": ["moneygram.com"]
+      },
+      {
+        "name": "Payoneer",
+        "aliases": ["Payoneer"],
+        "domains": ["payoneer.com"]
+      },
+      {
+        "name": "Skrill",
+        "aliases": ["Skrill"],
+        "domains": ["skrill.com"]
+      }
+    ]
+  }
+}

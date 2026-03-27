@@ -1,0 +1,158 @@
+{
+  "known_campaigns": [
+    {
+      "name": "Netflix Account Verification",
+      "description": "Phishing campaign targeting Netflix users with account verification requests",
+      "first_seen": "2023-06-01",
+      "status": "active",
+      "characteristics": [
+        "verify account",
+        "account suspended",
+        "netflix",
+        "update payment",
+        "click link"
+      ],
+      "target_brands": ["netflix", "netflix.com"],
+      "sender_patterns": ["@.*\\.com$", "support@", "netflix@"],
+      "subject_patterns": ["urgent", "suspended", "verify", "account"],
+      "url_patterns": ["netflix.*login", "verify.*account"],
+      "prevalence": "high",
+      "victim_count_estimate": "50000+"
+    },
+    {
+      "name": "Bank of America Security Alert",
+      "description": "Sophisticated campaign targeting bank customers",
+      "first_seen": "2023-05-15",
+      "status": "active",
+      "characteristics": [
+        "unusual activity",
+        "security alert",
+        "bank of america",
+        "verify identity"
+      ],
+      "target_brands": ["bank of america", "bankofamerica.com"],
+      "sender_patterns": ["@.*\\.com$", "security@", "alert@"],
+      "subject_patterns": ["security alert", "unusual activity", "sign-in"],
+      "url_patterns": ["bankofamerica.*login", "secure.*sign"],
+      "prevalence": "high",
+      "victim_count_estimate": "30000+"
+    },
+    {
+      "name": "IRS Tax Refund Scam",
+      "description": "Seasonal campaign during tax season",
+      "first_seen": "2024-01-15",
+      "status": "seasonal",
+      "characteristics": [
+        "tax refund",
+        "irs",
+        "direct deposit",
+        "verify information"
+      ],
+      "target_brands": ["irs", "irs.gov"],
+      "sender_patterns": ["@.*\\.gov$", "irs@", "refund@"],
+      "subject_patterns": ["tax refund", "refund", "irs"],
+      "url_patterns": ["irs.*refund", "tax.*direct"],
+      "prevalence": "medium",
+      "victim_count_estimate": "15000+"
+    },
+    {
+      "name": "Microsoft Office 365 Expiring",
+      "description": "Subscription renewal scam targeting Office users",
+      "first_seen": "2023-08-01",
+      "status": "active",
+      "characteristics": [
+        "office 365",
+        "expiring",
+        "renew subscription",
+        "payment due"
+      ],
+      "target_brands": ["microsoft", "microsoft.com", "office 365"],
+      "sender_patterns": ["@.*\\.com$", "microsoft@", "noreply@"],
+      "subject_patterns": ["expiring", "renew", "subscription", "office"],
+      "url_patterns": ["microsoft.*renew", "office.*subscription"],
+      "prevalence": "medium",
+      "victim_count_estimate": "20000+"
+    },
+    {
+      "name": "CEO Fraud / Business Email Compromise",
+      "description": "Targeted attacks against businesses",
+      "first_seen": "2022-10-01",
+      "status": "active",
+      "characteristics": [
+        "urgent transfer",
+        "wire transfer",
+        "confidential",
+        "ceo request"
+      ],
+      "target_brands": [],
+      "sender_patterns": ["ceo@", "executive@", "president@"],
+      "subject_patterns": ["urgent", "wire", "transfer", "confidential"],
+      "url_patterns": ["wire.*transfer", "urgent.*payment"],
+      "prevalence": "low",
+      "victim_count_estimate": "5000+",
+      "notes": "High-value targets, sophisticated targeting"
+    },
+    {
+      "name": "Amazon Order Confirmation",
+      "description": "Fake order confirmations with malicious links",
+      "first_seen": "2023-11-01",
+      "status": "active",
+      "characteristics": [
+        "order confirmation",
+        "amazon",
+        "cannot ship",
+        "verify address"
+      ],
+      "target_brands": ["amazon", "amazon.com"],
+      "sender_patterns": ["@.*\\.com$", "amazon@", "auto-confirm@"],
+      "subject_patterns": ["amazon", "order", "shipment", "confirm"],
+      "url_patterns": ["amazon.*order", "shipment.*verify"],
+      "prevalence": "high",
+      "victim_count_estimate": "40000+"
+    },
+    {
+      "name": "PayPal Account Limited",
+      "description": "Classic PayPal phishing with account limitation threats",
+      "first_seen": "2022-05-01",
+      "status": "active",
+      "characteristics": [
+        "account limited",
+        "paypal",
+        "restore access",
+        "verify information"
+      ],
+      "target_brands": ["paypal", "paypal.com"],
+      "sender_patterns": ["@.*\\.com$", "paypal@", "service@"],
+      "subject_patterns": ["account limited", "paypal", "restore"],
+      "url_patterns": ["paypal.*limited", "account.*restore"],
+      "prevalence": "high",
+      "victim_count_estimate": "60000+"
+    },
+    {
+      "name": "LinkedIn Job Offer Scam",
+      "description": "Fake job offers with malicious attachments",
+      "first_seen": "2023-09-01",
+      "status": "active",
+      "characteristics": [
+        "job offer",
+        "linkedin",
+        "apply now",
+        "high salary"
+      ],
+      "target_brands": ["linkedin", "linkedin.com"],
+      "sender_patterns": ["@.*\\.com$", "recruiting@", "jobs@", "linkedin@"],
+      "subject_patterns": ["linkedin", "apply", "job", "offer"],
+      "url_patterns": ["linkedin.*apply", "job.*offer"],
+      "prevalence": "medium",
+      "victim_count_estimate": "10000+"
+    }
+  ],
+  "tactics": {
+    "urgency": ["urgent", "immediately", "asap", "right away", "expires soon", "act now"],
+    "fear": ["suspended", "legal action", "police", "account closed", "lose access"],
+    "authority": ["ceo", "hr", "it department", "security team", "management"],
+    "greed": ["you won", "inheritance", "refund", "prize", "claim now"],
+    "curiosity": ["secret", "confidential", "exclusive", "special offer"],
+    "social_proof": ["other customers", "many people", "popular"]
+  }
+}

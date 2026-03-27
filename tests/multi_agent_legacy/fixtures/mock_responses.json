@@ -1,0 +1,99 @@
+{
+  "url_phishing_indicators": {
+    "is_phishing": true,
+    "confidence": 0.85,
+    "reasoning": "URL contains IP address and typosquatting patterns",
+    "evidence": [
+      "URL: http://192.168.1.1/login - Uses IP address instead of domain",
+      "URL: http://g00gle.com/verify - Typosquatting of google.com"
+    ]
+  },
+  "url_legitimate": {
+    "is_phishing": false,
+    "confidence": 0.9,
+    "reasoning": "All URLs are from legitimate domains with no suspicious patterns",
+    "evidence": [
+      "URL: https://www.chase.com/login - Legitimate bank domain",
+      "URL: https://support.apple.com - Legitimate Apple domain"
+    ]
+  },
+  "content_phishing_urgency": {
+    "is_phishing": true,
+    "confidence": 0.88,
+    "reasoning": "Email contains urgency tactics and requests for sensitive information",
+    "evidence": [
+      "Urgency language: 'immediate action required'",
+      "Credential request: 'verify your password'",
+      "Generic greeting: 'Dear Customer'"
+    ]
+  },
+  "content_legitimate": {
+    "is_phishing": false,
+    "confidence": 0.82,
+    "reasoning": "Professional tone, no urgency, personalized greeting",
+    "evidence": [
+      "Personalized greeting with customer name",
+      "No urgency indicators",
+      "No credential requests"
+    ]
+  },
+  "header_spf_fail": {
+    "is_phishing": true,
+    "confidence": 0.92,
+    "reasoning": "Email failed SPF validation and has From/Reply-To mismatch",
+    "evidence": [
+      "SPF validation: fail",
+      "From/Reply-To mismatch: From=amazon@scammer.com, Reply-To=support@amazon.com"
+    ]
+  },
+  "header_legitimate": {
+    "is_phishing": false,
+    "confidence": 0.95,
+    "reasoning": "Email passes all authentication checks (SPF, DKIM, DMARC)",
+    "evidence": [
+      "SPF validation: pass",
+      "DKIM signature: valid",
+      "DMARC: pass"
+    ]
+  },
+  "financial_wire_fraud": {
+    "is_phishing": true,
+    "confidence": 0.95,
+    "reasoning": "High-risk wire transfer urgency with domain impersonation",
+    "evidence": [
+      "Domain impersonation: wellsfarg0.com mimics wellsfargo.com",
+      "Wire transfer urgency: 'immediate wire transfer required'",
+      "Account compromise claim: 'your account is compromised'"
+    ]
+  },
+  "financial_legitimate": {
+    "is_phishing": false,
+    "confidence": 0.9,
+    "reasoning": "Sender domain is legitimate bank with no fraud patterns",
+    "evidence": [
+      "Sender domain is legitimate: wellsfargo.com",
+      "No urgency indicators",
+      "No suspicious action requests"
+    ]
+  },
+  "visual_phishing": {
+    "is_phishing": true,
+    "confidence": 0.78,
+    "reasoning": "HTML contains password fields and suspicious external resources",
+    "evidence": [
+      "Contains password input field - HIGH RISK",
+      "Form submits to external URL: http://fake-bank.com/login.php",
+      "Tracking pixel detected"
+    ]
+  },
+  "visual_legitimate": {
+    "is_phishing": false,
+    "confidence": 0.7,
+    "reasoning": "No obvious visual phishing indicators in HTML structure",
+    "evidence": [
+      "No password fields detected",
+      "No hidden forms",
+      "Legitimate image sources"
+    ]
+  }
+}

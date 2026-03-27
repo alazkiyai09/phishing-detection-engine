@@ -1,0 +1,40 @@
+# BERT-base training configuration
+model_name: distilbert-base-uncased
+num_labels: 2
+dropout: 0.1
+use_lora: false
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.1
+learning_rate: 2.0e-05
+batch_size: 16
+gradient_accumulation_steps: 1
+num_epochs: 3
+warmup_ratio: 0.1
+weight_decay: 0.01
+max_grad_norm: 1.0
+early_stopping_patience: 3
+early_stopping_metric: auprc
+max_length: 512
+truncation_strategy: head_tail
+use_special_tokens: true
+special_tokens:
+  - "[SUBJECT]"
+  - "[BODY]"
+  - "[URL]"
+  - "[SENDER]"
+fp16: true
+seed: 42
+logging_steps: 50
+save_steps: 500
+output_dir: checkpoints/distilbert
+log_dir: logs/distilbert
+use_wandb: true
+wandb_project: phishing-detection-transformers
+wandb_entity: null
+device: cuda
+data_path: data/raw/phishing_emails_hf.csv
+cache_dir: data/cache
+train_split: 0.6
+val_split: 0.2
+test_split: 0.2
