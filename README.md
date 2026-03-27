@@ -1,29 +1,52 @@
-# Phishing Detection Engine (`phishing-detection-engine`)
+<div align="center">
 
-Production-focused **phishing detection machine learning engine** combining URL/content/header feature extraction, classical and transformer models, multi-agent analysis, explainability, and API serving.
+# 📧 Phishing Detection Engine
 
-## Why This Repository
+### URL & Email Analysis • Ensemble ML • Transformer • Multi-Agent Explainability
 
-Email and URL threat detection needs layered analysis across heuristics, ML, and language models. `phishing-detection-engine` centralizes those layers in a deployable architecture.
+[![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Transformers](https://img.shields.io/badge/Transformers-HuggingFace-FCC624?style=flat)](https://huggingface.co/docs/transformers)
+[![LightGBM](https://img.shields.io/badge/LightGBM-9ACD32?style=flat)](https://lightgbm.readthedocs.io/)
 
-## Core Features
+[Overview](#-overview) • [About](#-about) • [Topics](#-topics) • [API](#-api-surfaces) • [Quick Start](#-quick-start)
 
-- Feature pipeline for URL, header, content, and linguistic indicators
-- Classical ML benchmark and transformer fine-tuning surfaces
-- Multi-agent phishing analysis components
-- Explainability narrative generation for analyst workflows
-- Unified FastAPI endpoints for analyze, explain, and benchmark
-- Embedded `src/core` utilities for validation, security, and logging
+---
 
-## Project Structure
+Phishing detection platform combining **heuristics**, **classical ML**, **transformers**, and **multi-agent analysis** with explainable API outputs.
 
-- `src/features/`: phishing feature extraction and pipeline composition
-- `src/models/`: classical, transformer, multi-agent, and ensemble surfaces
-- `src/explainability/`: SHAP extraction and narrative generation layers
-- `src/api/`: unified FastAPI app plus compatibility legacy app
-- `src/core/`: self-contained shared utilities for the repo
+</div>
 
-## API Endpoints
+---
+
+## 🎯 Overview
+
+`phishing-detection-engine` delivers layered phishing analysis:
+
+- URL, header, and content feature extraction
+- Classical and transformer model inference paths
+- Multi-agent decision support and explanation flow
+- Unified API for analyze, explain, and benchmarking
+
+## 📌 About
+
+- Built for fast phishing triage and model experimentation
+- Supports both lightweight and deep-analysis paths
+- Includes explainability outputs suitable for analyst workflows
+
+## 🏷️ Topics
+
+`phishing-detection` `email-security` `url-analysis` `machine-learning` `transformers` `fastapi` `cybersecurity` `explainable-ai`
+
+## 🧩 Architecture
+
+- `src/features/`: feature extraction pipelines
+- `src/models/`: classical, transformer, multi-agent, ensemble
+- `src/explainability/`: narrative and contribution mapping
+- `src/api/`: unified API + compatibility app
+- `src/core/`: errors, logging, validation, security
+
+## 🌐 API Surfaces
 
 - `POST /api/v1/analyze/url`
 - `POST /api/v1/analyze/email`
@@ -34,14 +57,14 @@ Email and URL threat detection needs layered analysis across heuristics, ML, and
 - `GET /health`
 - `GET /metrics`
 
-## Quick Start
+## ⚡ Quick Start
 
 ```bash
 pip install -r requirements.txt
 uvicorn src.api.main:app --reload
 ```
 
-## GLM Configuration
+## 🔧 GLM Setup
 
 ```bash
 export GLM_API_KEY=your_glm_api_key
@@ -49,6 +72,9 @@ export GLM_BASE_URL=https://api.z.ai/api/anthropic
 export GLM_MODEL=glm-5.1
 ```
 
-## SEO Keywords
+## 🛠️ Tech Stack
 
-phishing detection machine learning, email phishing classifier, url phishing detection api, transformer phishing model, multi agent phishing analysis, explainable phishing ai, fastapi phishing service
+**ML:** scikit-learn, XGBoost, LightGBM, Transformers  
+**API:** FastAPI, Pydantic  
+**XAI:** SHAP/LIME narrative layers  
+**Ops:** Redis, Prometheus-ready routing
